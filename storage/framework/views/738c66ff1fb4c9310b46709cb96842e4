@@ -1,0 +1,19 @@
+
+
+<?php $__env->startSection('contenido'); ?>
+    <header>
+        
+        <center><h2>VENTAS.COM  <small>ICINF6</small></h2></center><br><br><br>
+
+        <nav>
+            <ul>
+                <li style="list-style: none"><a class="btn btn-default" href="<?php echo e(URL::to('/productos/')); ?>" role="button">Productos</a></li><br>
+                <li style="list-style: none"><a class="btn btn-primary" href="<?php echo e(URL::to('/clientes/')); ?>" role="button">Gestion cliente</a></li><br>
+                <li style="list-style: none"><a class="btn btn-info" href="<?php echo e(URL::to('/../yerko/index.php/')); ?>" role="button">Generador de informes</a></li><br>
+            </ul>
+        </nav>
+    </header>
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

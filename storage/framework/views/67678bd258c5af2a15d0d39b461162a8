@@ -1,0 +1,116 @@
+<?php $__env->startSection('contenido'); ?>
+<h1 class="text-primary text-center">Editar producto</h1>
+
+<?php echo Form::model($producto,array('method' => 'PATCH','action' => ['ProductosController@update', $producto->id_producto])); ?>
+
+<div class="form-group  "></div>
+<?php echo Form::label('id_producto','Identificador del producto'); ?>
+
+</br>
+<?php echo Form::text('id_producto',null,['class' => 'form-control']); ?>
+
+</div>
+
+<div class="form-group"></div>
+<?php echo Form::label('id_categoria','Categoria'); ?>
+
+</br>
+<?php echo Form::select('id_categoria', $categorias); ?>
+
+
+</div>
+
+<div class="form-group"></div>
+<?php echo Form::label('descripcion_producto','Descripcion producto'); ?>
+
+</br>
+<?php echo Form::textarea('descripcion_producto',null,['class' => 'form-group']); ?>
+
+</div>
+
+<div class="form-group"></div>
+<?php echo Form::label('precio','precio'); ?>
+
+</br>
+<?php echo Form::text('precio',null,['class' => 'form-control']); ?>
+
+</div>
+
+<div class="form-group"></div>
+<?php echo Form::label('cantidad_producto','Cantidad producto'); ?>
+
+</br>
+<?php echo Form::text('cantidad_producto',null,['class' => 'form-control']); ?>
+
+</div>
+
+<div class="form-group"></div>
+<?php echo Form::label('marca','Marca'); ?>
+
+</br>
+<?php echo Form::text('marca',null,['class' => 'form-control']); ?>
+
+</div>
+
+<div class="form-group"></div>
+<?php echo Form::label('modelo','Modelo'); ?>
+
+</br>
+<?php echo Form::text('modelo',null,['class' => 'form-control']); ?>
+
+</div>
+
+<div class="form-group"></div>
+<?php echo Form::label('variable_holgura','Stock minimo'); ?>
+
+</br>
+<?php echo Form::text('variable_holgura',null,['class' => 'form-control']); ?>
+
+</div>
+
+<div class="form-group"></div>
+<?php echo Form::label('cantidad_ficticia_compra','Recomendacion cantidad para futuros pedidos'); ?>
+
+</br>
+<?php echo Form::text('cantidad_ficticia_compra',null,['class' => 'form-control']); ?>
+
+</div>
+
+<div class="form-group"></div>
+<?php echo Form::label('imagen','Agregar imagen'); ?>
+
+<?php echo Form::file('imagen'); ?>
+
+
+</div>
+
+<div class="form-group"></div>
+<?php echo Form::submit('Modifica producto', ['class' => ' btn btn-primary']); ?>
+
+</div>
+
+<?php echo Form::close(); ?>
+
+
+<?php echo Form::open(['method' => 'DELETE', 'route' => ['productos.destroy',$producto->id_producto]]); ?>
+
+    <div class="form-group"></div>
+
+                <button  type="submit" onclick="return confirm('¿Seguro que deseas eliminar el producto?')" class="btn btn-danger" >Elimina producto</button>
+    </div>
+<?php echo Form::close(); ?>
+
+
+    <?php if($errors->any()): ?>
+        <div class="alert alert-danger" role="alert">
+        <ul class ="alert alert-demage">
+            <?php foreach($errors->all() as $error): ?>
+                <li><?php echo e($error); ?></li>
+            <?php endforeach; ?>
+        </ul>
+        </div>
+    <?php endif; ?>
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

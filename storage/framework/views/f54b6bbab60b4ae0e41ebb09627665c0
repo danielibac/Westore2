@@ -1,0 +1,42 @@
+<?php $__env->startSection('contenido'); ?>
+<h3><a href="http://146.83.198.35/~icinf6/index.php/inicio">INICIO</a></h3>
+    <br>
+    <br>
+    <div><a href="<?php echo URL::to('/clientes/create'); ?>" class="btn btn-success ">Agregar nuevo usuario</a>
+    <div class="panel panel-default">
+        <div class="panel-heading"> Inicio</div>
+        <table class="table-responsive table-bordered">
+            <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido paterno</th>
+                <th>Apellido materno</th>
+                <th>Contrasena</th>
+                <th>Email</th>
+            </tr>
+
+            </thead>
+
+            <tbody>
+            <?php foreach($clientes as $cliente): ?>
+                <tr>
+                <td><?php echo e($cliente->nombre_cliente); ?></td>
+                <td><?php echo e($cliente->apellido_p); ?></td>
+                <td><?php echo e($cliente->apellido_m); ?></td>
+                <td><?php echo e($cliente->contasena_cliente); ?></td>
+                <td><?php echo e($cliente->email_cliente); ?></td>
+                     <td>
+                    <a href="<?php echo e(URL::to('/clientes/'.$cliente->id_cliente.'/edit')); ?>"class="btn btn-warning btn-xs">Editar</a>
+                         
+                     </td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+
+        </table>
+    </div>
+
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

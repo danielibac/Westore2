@@ -1,0 +1,41 @@
+<?php $__env->startSection('contenido'); ?>
+    <br>
+    <br>
+
+    <div class="panel panel-default">
+        <div class="panel-heading"> Inicio</div>
+        <table class="table-responsive table-bordered">
+            <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido paterno</th>
+                <th>Apellido materno</th>
+                <th>Contrasena</th>
+                <th>Email</th>
+            </tr>
+
+            </thead>
+
+            <tbody>
+            <?php foreach($empleados as $empleado): ?>
+                <tr>
+                    <td><?php echo e($empleado->nombre_empleado); ?></td>
+                    <td><?php echo e($empleado->apellido_p); ?></td>
+                    <td><?php echo e($empleado->apellido_m); ?></td>
+                    <td><?php echo e($empleado->contasena_empleado); ?></td>
+                    <td><?php echo e($empleado->email); ?></td>
+                    <td>
+                        <a href="<?php echo e(URL::to('/empleados/'.$empleado->rut_empleado.'/edit')); ?>" class="btn btn-warning btn-xs">Editar</a>
+                        <a href="<?php echo e(URL::to('/empleados/'.$empleado->rut_empleado)); ?>" class="btn btn-success btn-xs">Mi cuenta</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+
+        </table>
+    </div>
+
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

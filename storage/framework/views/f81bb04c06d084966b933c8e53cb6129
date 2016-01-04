@@ -1,0 +1,45 @@
+<?php $__env->startSection('contenido'); ?>
+    <div title="">
+        <h1 class="text-primary text-center">Ingresar Categoria</h1>
+    </div>
+
+    <?php echo Form::open(array('method' => 'post', 'url' =>'categorias', 'name' => 'form', 'files' => true)); ?>
+
+    <div class="form-group  "></div>
+    <?php echo Form::label('id_categoria','Identificador de categoria'); ?>
+
+    </br>
+    <?php echo Form::text('id_categoria',null,['class' => 'form-control']); ?>
+
+    </div>
+
+    <div class="form-group"></div>
+    <?php echo Form::label('nombre_categoria','Nombre categoria'); ?>
+
+    </br>
+    <?php echo Form::text('nombre_categoria',null,['class' => 'form-control']); ?>
+
+    </div>
+
+    <div class="form-group"></div>
+    <?php echo Form::submit('Guardar Categoria', ['class' => ' btn btn-primary']); ?>
+
+    </div>
+
+    <?php echo Form::close(); ?>
+
+
+
+    <?php if($errors->any()): ?>
+        <div class="alert alert-danger" role="alert">
+        <ul class ="alert alert-demage">
+            <?php foreach($errors->all() as $error): ?>
+                <li><?php echo e($error); ?></li>
+            <?php endforeach; ?>
+        </ul>
+        </div>
+    <?php endif; ?>
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
